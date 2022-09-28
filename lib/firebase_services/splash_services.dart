@@ -10,8 +10,8 @@ class SplashService {
   //   });
   // },
   void isLogin() {
-    Timer.periodic(Duration(seconds: 3), (timer) {
-      Get.to(LoginScreen());
+    Future.delayed(Duration(seconds: 3), () {
+      Get.off(LoginScreen());
     });
   }
 }
