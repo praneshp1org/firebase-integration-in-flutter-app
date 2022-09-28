@@ -1,3 +1,4 @@
+import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,8 +16,18 @@ class _LoginScreenState extends State<LoginScreen> {
         title: Text('LOGIN'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            RoundButton(
+              title: 'Login',
+              onTap: (() {}),
+            )
+          ],
+        ),
       ),
     );
   }
