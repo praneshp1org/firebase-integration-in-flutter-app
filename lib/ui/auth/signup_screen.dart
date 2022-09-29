@@ -121,6 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           email: _emailController.text.toString(),
                           password: _passwordController.text.toString())
                       .then((value) {
+                    _util.showToast("Successfully new account created!");
                     setState(() {
                       loading = false;
                     });

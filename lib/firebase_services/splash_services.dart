@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:firebase_crud/ui/auth/login_screen.dart';
+import 'package:firebase_crud/ui/posts/post_screen.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SplashService {
   // void IsLogin(){
@@ -10,8 +12,17 @@ class SplashService {
   //   });
   // },
   void isLogin() {
-    Future.delayed(Duration(seconds: 3), () {
-      Get.off(LoginScreen());
-    });
+    final _auth = FirebaseAuth.instance;
+    final user = _auth.currentUser;
+
+    if (user != null) {
+      Future.delayed(Duration(seconds: 3), () {
+        Get.off(PostScreen());
+      });
+    } else {
+      Future.delayed(Duration(seconds: 3), () {
+        Get.off(LoginScreen());
+      });
+    }
   }
 }

@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             password: _passwordController.text.toString())
         .then((value) {
       _util.showToast('The user is successfully logged in!');
-      Get.to(PostScreen());
+      Get.to(() => PostScreen());
       setState(() {
         _loading = false;
       });
