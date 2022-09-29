@@ -1,3 +1,4 @@
+import 'package:firebase_crud/ui/posts/post_screen.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _showText = false;
   final _auth = FirebaseAuth.instance;
   toastUtil _util = toastUtil();
+  bool _loading = false;
 
   @override
   void dispose() {
@@ -32,15 +34,25 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() {
+    setState(() {
+      _loading = true;
+    });
     _auth
         .signInWithEmailAndPassword(
             email: _emailController.text.toString(),
             password: _passwordController.text.toString())
         .then((value) {
       _util.showToast('The user is successfully logged in!');
+      Get.to(PostScreen());
+      setState(() {
+        _loading = false;
+      });
     }).onError((error, stackTrace) {
       _util.showToast(error.toString());
       debugPrint(error.toString());
+      setState(() {
+        _loading = false;
+      });
     });
   }
 
@@ -124,6 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
               ),
               RoundButton(
+                loading: _loading,
                 title: 'Login',
                 onTap: (() {
                   if (_formKey.currentState!.validate()) {
