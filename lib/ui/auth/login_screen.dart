@@ -48,6 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           prefixIcon: Icon(Icons.alternate_email),
                           helperText: 'E.g. abcd@gmail.com',
                           hintText: 'Email'),
+                      validator: ((value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter email';
+                        }
+                        return null;
+                      }),
                     ),
                     SizedBox(
                       height: 20,
@@ -59,15 +65,27 @@ class _LoginScreenState extends State<LoginScreen> {
                           prefixIcon: Icon(Icons.password),
                           // helperText: 'stronm',
                           hintText: 'Password'),
+                      validator: ((value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter password';
+                        }
+                        return null;
+                      }),
                     ),
                   ],
                 )),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             RoundButton(
               title: 'Login',
-              onTap: (() {}),
+              onTap: (() {
+                if (_formKey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Processing Data')),
+                  );
+                }
+              }),
             )
           ],
         ),
