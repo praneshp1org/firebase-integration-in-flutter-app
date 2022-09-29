@@ -1,6 +1,7 @@
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -16,6 +17,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   /*
   form validator dlutter documentation ma ramro xa
   */
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void dispose() {
@@ -87,9 +90,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               title: 'Sign Up',
               onTap: (() {
                 if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data...')),
-                  );
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   const SnackBar(content: Text('Processing Data...')),
+                  // );
+                  _auth.createUserWithEmailAndPassword(
+                      email: _emailController.text.toString(),
+                      password: _passwordController.text.toString());
                 }
               }),
             ),
