@@ -1,6 +1,6 @@
 # firebase integration in flutter app
 
-A new Flutter project.
+Creating a template for login/signup and various ither features of Firebase in a flutter app.
 
 ## Getting Started
 
