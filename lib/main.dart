@@ -1,4 +1,5 @@
 import 'package:firebase_crud/ui/auth/login_screen.dart';
+import 'package:firebase_crud/ui/auth/signup_screen.dart';
 import 'package:firebase_crud/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,14 +20,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Flutter Firebase',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
       // home: SplashScreen(),
       getPages: [
         GetPage(name: "/", page: () => SplashScreen()),
-        // GetPage(name: "/home", page: () => HomePage())
+        GetPage(name: "/login", page: () => LoginScreen()),
+        GetPage(name: "/signup", page: () => SignUpScreen()),
       ],
     );
   }
