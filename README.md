@@ -1,4 +1,4 @@
-# firebase_crud
+# firebase integration in flutter app
 
 A new Flutter project.
 
