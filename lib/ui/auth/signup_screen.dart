@@ -109,8 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       loading = false;
                     });
                   }).onError((error, stackTrace) {
-                    // print('');
-                    _util.showToast('User already registered!');
+                    _util.showToast(error.toString());
                     setState(() {
                       loading = false;
                     });
