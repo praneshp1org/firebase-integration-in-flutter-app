@@ -1,7 +1,9 @@
+import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
   /*
   form validator dlutter documentation ma ramro xa
   */
+  bool _showText = false;
+  final _auth = FirebaseAuth.instance;
+  toastUtil _util = toastUtil();
 
   @override
   void dispose() {
@@ -24,6 +29,19 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
     _passwordController.dispose();
     _emailController.dispose();
+  }
+
+  void login() {
+    _auth
+        .signInWithEmailAndPassword(
+            email: _emailController.text.toString(),
+            password: _passwordController.text.toString())
+        .then((value) {
+      _util.showToast('The user is successfully logged in!');
+    }).onError((error, stackTrace) {
+      _util.showToast(error.toString());
+      debugPrint(error.toString());
+    });
   }
 
   @override
@@ -72,10 +90,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
-                        obscureText: true,
+                        obscureText: _showText,
                         controller: _passwordController,
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.password),
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _showText = !_showText;
+                                  });
+                                },
+                                icon: _showText
+                                    ? Icon(
+                                        Icons.remove_red_eye,
+                                        color: Colors.purple,
+                                      )
+                                    : Icon(
+                                        Icons.remove_red_eye,
+                                        color: Colors.red,
+                                      )),
                             // helperText: 'stronm',
                             hintText: 'Password'),
                         validator: ((value) {
@@ -94,9 +127,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: 'Login',
                 onTap: (() {
                   if (_formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data...')),
-                    );
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   const SnackBar(content: Text('Processing Data...')),
+                    // );
+                    login();
                   }
                 }),
               ),

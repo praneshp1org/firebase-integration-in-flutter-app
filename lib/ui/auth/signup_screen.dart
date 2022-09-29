@@ -22,6 +22,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   FirebaseAuth _auth = FirebaseAuth.instance;
   toastUtil _util = toastUtil();
   bool loading = false;
+  bool _showText = false;
 
   @override
   void dispose() {
@@ -71,10 +72,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     TextFormField(
                       keyboardType: TextInputType.text,
-                      obscureText: true,
+                      obscureText: _showText,
                       controller: _passwordController,
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.password),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _showText = !_showText;
+                                });
+                              },
+                              icon: _showText
+                                  ? Icon(
+                                      Icons.remove_red_eye,
+                                      color: Colors.purple,
+                                    )
+                                  : Icon(
+                                      Icons.remove_red_eye,
+                                      color: Colors.red,
+                                    )),
                           // helperText: 'stronm',
                           hintText: 'Password'),
                       validator: ((value) {
