@@ -1,3 +1,4 @@
+import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   */
 
   FirebaseAuth _auth = FirebaseAuth.instance;
+  toastUtil _util = toastUtil();
+  bool loading = false;
 
   @override
   void dispose() {
@@ -87,15 +90,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
               height: 50,
             ),
             RoundButton(
+              loading: loading,
               title: 'Sign Up',
               onTap: (() {
                 if (_formKey.currentState!.validate()) {
                   // ScaffoldMessenger.of(context).showSnackBar(
                   //   const SnackBar(content: Text('Processing Data...')),
                   // );
-                  _auth.createUserWithEmailAndPassword(
-                      email: _emailController.text.toString(),
-                      password: _passwordController.text.toString());
+                  setState(() {
+                    loading = true;
+                  });
+                  _auth
+                      .createUserWithEmailAndPassword(
+                          email: _emailController.text.toString(),
+                          password: _passwordController.text.toString())
+                      .then((value) {
+                    setState(() {
+                      loading = false;
+                    });
+                  }).onError((error, stackTrace) {
+                    // print('');
+                    _util.showToast('User already registered!');
+                    setState(() {
+                      loading = false;
+                    });
+                  });
                 }
               }),
             ),
@@ -115,7 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                     child: Text('Login')),
               ],
-            )
+            ),
           ],
         ),
       ),
