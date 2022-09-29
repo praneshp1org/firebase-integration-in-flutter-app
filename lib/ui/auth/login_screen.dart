@@ -91,6 +91,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   );
                 }
               }),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('No account? '),
+                // SizedBox(
+                //   width: 5,
+                // ),
+                TextButton(onPressed: () {}, child: Text('Sign Up')),
+              ],
             )
           ],
         ),
