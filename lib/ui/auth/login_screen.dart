@@ -12,6 +12,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>(); //checks if empty or not
+  /*
+  form validator dlutter documentation ma ramro xa
+  */
 
   @override
   void dispose() {
@@ -43,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.alternate_email),
@@ -59,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 20,
                     ),
                     TextFormField(
+                      keyboardType: TextInputType.text,
                       obscureText: true,
                       controller: _passwordController,
                       decoration: InputDecoration(
@@ -82,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: (() {
                 if (_formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
+                    const SnackBar(content: Text('Processing Data...')),
                   );
                 }
               }),
