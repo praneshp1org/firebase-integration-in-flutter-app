@@ -23,6 +23,7 @@ class _PostScreenState extends State<PostScreen> {
         actions: [
           IconButton(
               onPressed: () {
+                //logout feature
                 _auth.signOut().then((value) {
                   Get.to(LoginScreen());
                 }).onError((error, stackTrace) {
