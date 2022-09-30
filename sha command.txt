@@ -1,0 +1,5 @@
+for genrating SHA certificate
+cd android
+.\gradlew signingReport
+
+Then it will generate it
