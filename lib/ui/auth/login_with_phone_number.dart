@@ -48,7 +48,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                 loading: _loading,
                 onTap: () {
                   setState(() {
-                    _loading = true;
+                    _loading = !_loading;
                   });
                   _auth.verifyPhoneNumber(
                       phoneNumber: _phoneNumberController.text,
@@ -71,7 +71,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                         });
                       },
                       codeAutoRetrievalTimeout: (e) {
-                        toastUtil().showToast(e.toString());
+                        // toastUtil().showToast(e.toString());
                         setState(() {
                           _loading = false;
                         });

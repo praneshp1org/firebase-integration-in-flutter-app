@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_crud/ui/posts/post_screen.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class VerifyCodeScreen extends StatefulWidget {
 }
 
 class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
-  final _phoneNumberController = TextEditingController();
+  final _codeNumberController = TextEditingController();
   bool _loading = false;
   final _auth = FirebaseAuth.instance;
 
@@ -36,14 +37,34 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
             ),
             TextFormField(
               keyboardType: TextInputType.number,
-              controller: _phoneNumberController,
+              controller: _codeNumberController,
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.verified), hintText: '6 digit code'),
             ),
             SizedBox(
               height: 80,
             ),
-            RoundButton(title: 'Verify', loading: _loading, onTap: () {})
+            RoundButton(
+                title: 'Verify',
+                loading: _loading,
+                onTap: () async {
+                  setState(() {
+                    _loading = true;
+                  });
+                  final _credential = PhoneAuthProvider.credential(
+                      verificationId: widget.verificationId,
+                      smsCode: _codeNumberController.text.toString());
+
+                  try {
+                    _auth.signInWithCredential(_credential);
+                    Get.to(PostScreen());
+                  } catch (e) {
+                    setState(() {
+                      _loading = false;
+                    });
+                    toastUtil().showToast('Error in verification');
+                  }
+                })
           ],
         ),
       ),
