@@ -163,6 +163,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Text('Sign Up')),
                 ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.0),
+                      border: Border.all(color: Colors.black)),
+                  height: 50,
+                  child: Center(child: Text('Login with phone number')),
+                ),
               )
             ],
           ),
