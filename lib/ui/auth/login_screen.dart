@@ -1,3 +1,4 @@
+import 'package:firebase_crud/ui/auth/login_with_phone_number.dart';
 import 'package:firebase_crud/ui/posts/post_screen.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
@@ -168,7 +169,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Get.to(LoginWithPhone());
+                },
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.0),
