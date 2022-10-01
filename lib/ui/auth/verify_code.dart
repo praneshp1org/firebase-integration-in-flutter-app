@@ -57,7 +57,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
 
                   try {
                     _auth.signInWithCredential(_credential);
-                    Get.to(PostScreen());
+                    Get.off(PostScreen());
                   } catch (e) {
                     setState(() {
                       _loading = false;
