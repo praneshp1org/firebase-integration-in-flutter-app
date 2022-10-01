@@ -1,3 +1,4 @@
+import 'package:firebase_crud/ui/auth/login_screen.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
@@ -122,6 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           password: _passwordController.text.toString())
                       .then((value) {
                     _util.showToast("Successfully new account created!");
+                    Get.off(LoginScreen());
                     setState(() {
                       loading = false;
                     });
