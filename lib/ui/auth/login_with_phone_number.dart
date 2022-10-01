@@ -64,7 +64,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                         });
                       },
                       codeSent: (String verificationId, int? token) {
-                        Get.to(
+                        Get.off(
                             VerifyCodeScreen(verificationId: verificationId));
                         setState(() {
                           _loading = false;
