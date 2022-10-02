@@ -4,10 +4,12 @@ import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_phone_auth_handler/firebase_phone_auth_handler.dart';
 
 class VerifyCodeScreen extends StatefulWidget {
   final String verificationId;
-  const VerifyCodeScreen({super.key, required this.verificationId});
+  // final int? token;
+  VerifyCodeScreen({super.key, required this.verificationId});
 
   @override
   State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
@@ -57,8 +59,23 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                       smsCode: _codeNumberController.text.toString());
 
                   try {
-                    _auth.signInWithCredential(_credential);
-                    Get.off(PostScreen());
+                    setState(() {
+                      _loading = false;
+                    });
+                    if (_credential.smsCode.toString() ==
+                        _codeNumberController.text.toString()) {
+                      // _auth.signInWithCredential(_credential);
+                      // Get.off(PostScreen());
+                    } else {
+                      toastUtil().showToast('Some error occurred!');
+                    }
+
+                    // if (widget.token == _codeNumberController.text.toString()) {
+                    //   _auth.signInWithCredential(_credential);
+                    //   Get.off(PostScreen());
+                    // } else {
+                    //   toastUtil().showToast('Please enter correct code!');
+                    // }
                   } catch (e) {
                     setState(() {
                       _loading = false;

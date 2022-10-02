@@ -1,4 +1,5 @@
 import 'package:firebase_crud/ui/auth/verify_code.dart';
+import 'package:firebase_crud/ui/posts/post_screen.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
@@ -52,13 +53,18 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                   });
                   _auth.verifyPhoneNumber(
                       phoneNumber: _phoneNumberController.text,
-                      verificationCompleted: (_) {
+                      verificationCompleted:
+                          (AuthCredential AuthCredential) async {
                         setState(() {
                           _loading = false;
                         });
+                        // Get.off(PostScreen());
                       },
-                      verificationFailed: (e) {
-                        toastUtil().showToast(e.toString());
+                      verificationFailed: (FirebaseAuthException e) {
+                        if (e.code == 'invalid-phone-number') {
+                          toastUtil().showToast(e.code);
+                        }
+
                         setState(() {
                           _loading = false;
                         });

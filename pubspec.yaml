@@ -41,6 +41,7 @@ dependencies:
   get: ^4.6.5
   cloud_firestore: ^3.4.9
   fluttertoast: ^8.0.9
+  firebase_phone_auth_handler: ^1.0.6
 
 dev_dependencies:
   flutter_test:
