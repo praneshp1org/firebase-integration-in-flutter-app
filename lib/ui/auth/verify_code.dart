@@ -62,13 +62,15 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     setState(() {
                       _loading = false;
                     });
-                    if (_credential.smsCode.toString() ==
-                        _codeNumberController.text.toString()) {
-                      // _auth.signInWithCredential(_credential);
-                      // Get.off(PostScreen());
-                    } else {
-                      toastUtil().showToast('Some error occurred!');
-                    }
+                    await _auth.signInWithCredential(_credential);
+                    toastUtil().showToast(_credential.smsCode.toString());
+                    // if (_credential.smsCode.toString() ==
+                    //     _codeNumberController.text.toString()) {
+                    //   // _auth.signInWithCredential(_credential);
+                    //   // Get.off(PostScreen());
+                    // } else {
+                    //   toastUtil().showToast('Some error occurred!');
+                    // }
 
                     // if (widget.token == _codeNumberController.text.toString()) {
                     //   _auth.signInWithCredential(_credential);
