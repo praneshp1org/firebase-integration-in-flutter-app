@@ -64,6 +64,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     });
                     await _auth.signInWithCredential(_credential);
                     toastUtil().showToast(_credential.smsCode.toString());
+                    Get.off(PostScreen());
                     // if (_credential.smsCode.toString() ==
                     //     _codeNumberController.text.toString()) {
                     //   // _auth.signInWithCredential(_credential);
