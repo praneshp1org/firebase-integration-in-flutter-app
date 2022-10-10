@@ -23,6 +23,10 @@ class _PostScreenState extends State<PostScreen> {
         return true;
       }),
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.add),
+        ),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           centerTitle: true,
