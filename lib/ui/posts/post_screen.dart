@@ -1,4 +1,5 @@
 import 'package:firebase_crud/ui/auth/login_screen.dart';
+import 'package:firebase_crud/ui/posts/add_posts.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +25,9 @@ class _PostScreenState extends State<PostScreen> {
       }),
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(AddPostScreen());
+          },
           child: Icon(Icons.add),
         ),
         appBar: AppBar(
