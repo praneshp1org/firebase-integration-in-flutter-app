@@ -53,11 +53,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   setState(() {
                     _loading = true;
                   });
-                  _databaseRef
-                      .child(DateTime.now().millisecondsSinceEpoch.toString())
-                      .set({
+                  String id = DateTime.now().millisecondsSinceEpoch.toString();
+
+                  ///
+                  _databaseRef.child(id).set({
                     'title': _postController.text.toString(),
-                    'id': DateTime.now().toString(),
+                    'id': id,
                   }).then((value) {
                     setState(() {
                       _loading = false;
