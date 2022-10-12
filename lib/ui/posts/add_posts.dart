@@ -49,7 +49,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   });
                   _databaseRef
                       .child(DateTime.now().millisecondsSinceEpoch.toString())
-                      .child('Comment')
                       .set({
                     'title': _postController.text.toString(),
                     'id': DateTime.now().toString(),

@@ -1,9 +1,12 @@
 import 'package:firebase_crud/ui/auth/login_screen.dart';
 import 'package:firebase_crud/ui/posts/add_posts.dart';
 import 'package:firebase_crud/utils/utils.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 
 class PostScreen extends StatefulWidget {
@@ -15,6 +18,7 @@ class PostScreen extends StatefulWidget {
 
 class _PostScreenState extends State<PostScreen> {
   final _auth = FirebaseAuth.instance;
+  final ref = FirebaseDatabase.instance.ref('Test');
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +51,24 @@ class _PostScreenState extends State<PostScreen> {
                 icon: Icon(Icons.logout)),
             SizedBox(
               width: 10,
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              //needs to be wrapped with expanded widget
+              child: FirebaseAnimatedList(
+                  defaultChild: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  query: ref,
+                  itemBuilder: ((context, snapshot, animation, index) {
+                    return ListTile(
+                      title: Text(snapshot.child('title').value.toString()),
+                      subtitle: Text(snapshot.child('id').value.toString()),
+                    );
+                  })),
             )
           ],
         ),
