@@ -47,9 +47,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   setState(() {
                     _loading = true;
                   });
-                  _databaseRef.child('pranesh').set({
+                  _databaseRef
+                      .child(DateTime.now().millisecondsSinceEpoch.toString())
+                      .child('Comment')
+                      .set({
                     'title': _postController.text.toString(),
-                    'id': 1,
+                    'id': DateTime.now().toString(),
                   }).then((value) {
                     setState(() {
                       _loading = false;
