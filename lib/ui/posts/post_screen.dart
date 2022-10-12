@@ -19,6 +19,12 @@ class PostScreen extends StatefulWidget {
 class _PostScreenState extends State<PostScreen> {
   final _auth = FirebaseAuth.instance;
   final ref = FirebaseDatabase.instance.ref('Test');
+  final _searchFilter = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +85,23 @@ class _PostScreenState extends State<PostScreen> {
             //     },
             //   ),
             // ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextFormField(
+                controller: _searchFilter,
+                onChanged: (String? value) {
+                  // setState(() {});
+                  setState(() {});
+                },
+                decoration: InputDecoration(
+                  hintText: 'Search..',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
             Expanded(
               //needs to be wrapped with expanded widget
               child: FirebaseAnimatedList(
@@ -87,10 +110,26 @@ class _PostScreenState extends State<PostScreen> {
                   ),
                   query: ref,
                   itemBuilder: ((context, snapshot, animation, index) {
-                    return ListTile(
-                      title: Text(snapshot.child('title').value.toString()),
-                      subtitle: Text(snapshot.child('id').value.toString()),
-                    );
+                    final title = snapshot.child('title').value.toString();
+                    if (_searchFilter.text.isEmpty) {
+                      return ListTile(
+                        title: Text(
+                          snapshot.child('title').value.toString(),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(snapshot.child('id').value.toString()),
+                      );
+                      // return Text('Nani ko chak');
+                    } else if (title
+                        .toLowerCase()
+                        .contains(_searchFilter.text.toLowerCase())) {
+                      return ListTile(
+                        title: Text(snapshot.child('title').value.toString()),
+                        subtitle: Text(snapshot.child('id').value.toString()),
+                      );
+                    } else {
+                      return Container();
+                    }
                   })),
             )
           ],

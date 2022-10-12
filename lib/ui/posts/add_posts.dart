@@ -35,7 +35,13 @@ class _AddPostScreenState extends State<AddPostScreen> {
               maxLines: 4,
               controller: _postController,
               decoration: InputDecoration(
-                  hintText: 'Write something...', border: OutlineInputBorder()),
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        _postController.clear();
+                      },
+                      icon: Icon(Icons.clear)),
+                  hintText: 'Write something...',
+                  border: OutlineInputBorder()),
             ),
             SizedBox(
               height: 30,
