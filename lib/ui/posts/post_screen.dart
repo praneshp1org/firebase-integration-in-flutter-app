@@ -26,7 +26,7 @@ class _PostScreenState extends State<PostScreen> {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.to(AddPostScreen());
+            Get.to(() => AddPostScreen());
           },
           child: Icon(Icons.add),
         ),
