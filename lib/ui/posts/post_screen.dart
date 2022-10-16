@@ -62,29 +62,6 @@ class _PostScreenState extends State<PostScreen> {
         ),
         body: Column(
           children: [
-            // Expanded(
-            //   child: StreamBuilder(
-            //     stream: ref.onValue,
-            //     builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
-            //       if (!snapshot.hasData) {
-            //         return CircularProgressIndicator();
-            //       } else {
-            //         Map<dynamic, dynamic> map =
-            //             snapshot.data!.snapshot.value as dynamic;
-            //         List<dynamic> list = [];
-            //         list.clear();
-            //         list = map.values.toList();
-            //         return ListView.builder(
-            //             itemCount: snapshot.data!.snapshot.children.length,
-            //             itemBuilder: (context, index) {
-            //               return ListTile(
-            //                 title: Text(list[index]['title']),
-            //               );
-            //             });
-            //       }
-            //     },
-            //   ),
-            // ),
             SizedBox(
               height: 10,
             ),
@@ -118,6 +95,22 @@ class _PostScreenState extends State<PostScreen> {
                           style: TextStyle(fontSize: 20),
                         ),
                         subtitle: Text(snapshot.child('id').value.toString()),
+                        trailing: PopupMenuButton(
+                            icon: Icon(Icons.more_vert),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                      value: 1,
+                                      child: ListTile(
+                                        leading: Icon(Icons.edit),
+                                        title: Text('Edit'),
+                                      )),
+                                  PopupMenuItem(
+                                      value: 1,
+                                      child: ListTile(
+                                        leading: Icon(Icons.delete),
+                                        title: Text('Delete'),
+                                      )),
+                                ]),
                       );
                       // return Text('Nani ko chak');
                     } else if (title
@@ -131,7 +124,30 @@ class _PostScreenState extends State<PostScreen> {
                       return Container();
                     }
                   })),
-            )
+            ),
+            // Expanded(
+            //   child: StreamBuilder(
+            //     stream: ref.onValue,
+            //     builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
+            //       if (!snapshot.hasData) {
+            //         return CircularProgressIndicator();
+            //       } else {
+            //         Map<dynamic, dynamic> map =
+            //             snapshot.data!.snapshot.value as dynamic;
+            //         List<dynamic> list = [];
+            //         list.clear();
+            //         list = map.values.toList();
+            //         return ListView.builder(
+            //             itemCount: snapshot.data!.snapshot.children.length,
+            //             itemBuilder: (context, index) {
+            //               return ListTile(
+            //                 title: Text(list[index]['title']),
+            //               );
+            //             });
+            //       }
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
