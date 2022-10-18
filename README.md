@@ -1,6 +1,6 @@
-# firebase integration in flutter app
+# Firebase Integration in flutter app
 
-Creating a template for login, log out, sign up, OTP verification, phone number authentication and various other features of Firebase in a flutter app.
+Creating a template for login, log out, sign up, OTP verification, phone number authentication and various other features of Firebase in a flutter app. The user can log in with email, phone number, etc. The backend is Firebase. It saves the user login/logout details. CRUD operation is also performed.
 
 ## Getting Started
 
