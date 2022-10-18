@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
+import 'package:js/js.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -99,6 +100,9 @@ class _PostScreenState extends State<PostScreen> {
                             icon: Icon(Icons.more_vert),
                             itemBuilder: (context) => [
                                   PopupMenuItem(
+                                      onTap: () {
+                                        _showMyDialog();
+                                      },
                                       value: 1,
                                       child: ListTile(
                                         leading: Icon(Icons.edit),
@@ -151,6 +155,27 @@ class _PostScreenState extends State<PostScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Update'),
+          content: SingleChildScrollView(),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Approve'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

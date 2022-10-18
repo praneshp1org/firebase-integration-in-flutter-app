@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^8.0.9
   firebase_phone_auth_handler: ^1.0.6
   firebase_database: ^9.1.7
+  js: ^0.6.4
 
 dev_dependencies:
   flutter_test:
