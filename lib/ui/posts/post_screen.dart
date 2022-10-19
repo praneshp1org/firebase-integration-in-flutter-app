@@ -21,6 +21,7 @@ class _PostScreenState extends State<PostScreen> {
   final _auth = FirebaseAuth.instance;
   final ref = FirebaseDatabase.instance.ref('Test');
   final _searchFilter = TextEditingController();
+  final _editFilter = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
@@ -100,11 +101,17 @@ class _PostScreenState extends State<PostScreen> {
                             icon: Icon(Icons.more_vert),
                             itemBuilder: (context) => [
                                   PopupMenuItem(
-                                      onTap: () {
-                                        _showMyDialog();
-                                      },
                                       value: 1,
                                       child: ListTile(
+                                        onTap: (() {
+                                          Navigator.pop(context);
+                                          _showMyDialog(
+                                              title,
+                                              snapshot
+                                                  .child('id')
+                                                  .value
+                                                  .toString());
+                                        }),
                                         leading: Icon(Icons.edit),
                                         title: Text('Edit'),
                                       )),
@@ -157,19 +164,38 @@ class _PostScreenState extends State<PostScreen> {
     );
   }
 
-  Future<void> _showMyDialog() async {
+  Future<void> _showMyDialog(String title, String id) async {
+    _editFilter.text = title;
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // user must tap button!
+      barrierDismissible: true, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Update'),
-          content: SingleChildScrollView(),
+          content: Container(
+            child: TextFormField(
+              controller: _editFilter,
+              decoration: InputDecoration(
+                hintText: 'Update your message',
+              ),
+            ),
+          ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Approve'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('Update'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                ref.child(id).update({'title': _editFilter.text}).then((value) {
+                  toastUtil().showToast('Successfully updated!');
+                }).onError((error, stackTrace) {
+                  toastUtil().showToast('Error occured!');
+                });
               },
             ),
           ],
