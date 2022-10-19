@@ -8,7 +8,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
-import 'package:js/js.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -94,7 +93,7 @@ class _PostScreenState extends State<PostScreen> {
                       return ListTile(
                         title: Text(
                           snapshot.child('title').value.toString(),
-                          style: TextStyle(fontSize: 20),
+                          // style: TextStyle(fontSize: 16),
                         ),
                         subtitle: Text(snapshot.child('id').value.toString()),
                         trailing: PopupMenuButton(
@@ -118,6 +117,22 @@ class _PostScreenState extends State<PostScreen> {
                                   PopupMenuItem(
                                       value: 1,
                                       child: ListTile(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                          ref
+                                              .child(snapshot
+                                                  .child('id')
+                                                  .value
+                                                  .toString())
+                                              .remove()
+                                              .then((value) {
+                                            toastUtil().showToast(
+                                                'Successfully deleted!');
+                                          }).onError((error, stackTrace) {
+                                            toastUtil()
+                                                .showToast('Error Occured!');
+                                          });
+                                        },
                                         leading: Icon(Icons.delete),
                                         title: Text('Delete'),
                                       )),
