@@ -116,7 +116,6 @@ class _PostScreenState extends State<PostScreen> {
                                       )),
                                 ]),
                       );
-                      // return Text('Nani ko chak');
                     } else if (title
                         .toLowerCase()
                         .contains(_searchFilter.text.toLowerCase())) {
