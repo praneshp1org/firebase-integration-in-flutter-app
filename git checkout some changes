@@ -1,0 +1,234 @@
+[33mcommit 60d5cb9e72000f3c1277fd5e3a3ddd580acca38a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 19 17:35:29 2022 +0545
+
+    some changes
+
+[33mcommit 2e1b52ad665b39eac54c31af2a1427973617de82[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 19 10:20:07 2022 +0545
+
+    update feature added
+
+[33mcommit bae650be7a6a51f324efee839b91cee6bc74d276[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 19 09:44:49 2022 +0545
+
+    finally started working again
+
+[33mcommit 74513cd26c146c9be42c2010518c906458e3e024[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Tue Oct 18 12:03:43 2022 +0545
+
+    some changes to readme.md
+
+[33mcommit add0ad1ae98c82278e2ef02cba95d64c9c9961cb[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Tue Oct 18 12:03:24 2022 +0545
+
+    updated read me
+
+[33mcommit 1e6605cfdfef4a977c440662f32441e0f99d8885[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sun Oct 16 15:13:45 2022 +0545
+
+    minor changes
+
+[33mcommit 95a1d7d67460d06f0136960eb004a08733bf7434[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 19:32:44 2022 +0545
+
+    synchronization of id
+
+[33mcommit 5596d27c0fb9853b6672db7e4257f225cef9d820[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 19:12:30 2022 +0545
+
+    easy way of search filter added
+
+[33mcommit c31c8b09d4d20f5bad4f326a2f7e936b06a85111[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 11:43:23 2022 +0545
+
+    commented the hard code
+
+[33mcommit 956206c1c2ad8b724f0804956216ab9c5ed22282[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 11:40:24 2022 +0545
+
+    next method
+
+[33mcommit 75c65dff244fc6fe6a1102e333b5fc0774469600[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 11:07:16 2022 +0545
+
+    fetching data from firebase
+
+[33mcommit 06d043100d4652b5d6bc6de5a7b40a3b906051ea[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 10:36:56 2022 +0545
+
+    same as previous
+
+[33mcommit f32383d16b5ba11a9de54618b85138a788261cb4[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Wed Oct 12 10:31:21 2022 +0545
+
+    creating reference of database table
+
+[33mcommit b0eaf3dab7b51aa82213e6272e1358bc7991db95[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Mon Oct 10 18:12:53 2022 +0545
+
+    reference of firebase database
+
+[33mcommit 2c7c54819b72289226fd932b14b86d3285c63fe8[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Mon Oct 10 11:12:33 2022 +0545
+
+    post screen added
+
+[33mcommit 76bfeb89ed49ff82809e6751e8e5cbfb3357bdda[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Mon Oct 10 11:08:37 2022 +0545
+
+    adding realtime firebase database
+
+[33mcommit 1cb78f57ab4e3f410e65e750ea5d91a9788d6b70[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sun Oct 9 16:15:36 2022 +0545
+
+    finally resolved the bug after dashain
+
+[33mcommit 3e22b1f6d999e52c311f6b9f7384d003e3c98a29[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sun Oct 9 16:11:03 2022 +0545
+
+    back after dashain
+
+[33mcommit 15abc11e41eaf844f8d8ae711c8ce926cb1d9d3b[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sun Oct 2 15:05:03 2022 +0545
+
+    signs in with wrong otp
+
+[33mcommit 0193aaa655ae2ac2dd26cb62a6adeebbc122b907[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sun Oct 2 14:59:51 2022 +0545
+
+    still has some unsolved bugs, will resolve later
+
+[33mcommit 88a56d9394c8e4fbd65c3f5a00096fdb72b6ebb5[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sat Oct 1 12:27:03 2022 +0545
+
+    some security issues fixed
+
+[33mcommit eadd67f90910a2eedbd7f5f78b79fa636e77ac71[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sat Oct 1 12:21:17 2022 +0545
+
+    some security settings
+
+[33mcommit 10d55168bb3af7c499bf7f2e25f5e286f8c0b1d9[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Sat Oct 1 12:14:02 2022 +0545
+
+    fixed minor bug
+
+[33mcommit 10cf5e136a8353ab2a79dd101c3fc1dd561be745[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 15:31:08 2022 +0545
+
+    otp verification and phone number authentification completed
+
+[33mcommit b868f1fc616163029a04b139b308cb3b62954a13[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 15:12:36 2022 +0545
+
+    sha1 and sha256 key added to the firebase
+
+[33mcommit aed8705937025746e050cf150ee950ddea0b2daa[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 14:24:16 2022 +0545
+
+    some changes to the UI
+
+[33mcommit 40ca6825171837deb2f2d687fe2c09de150cdf97[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 14:23:51 2022 +0545
+
+    some changes to the UI
+
+[33mcommit 49a63a2f952e0875433bc3768986937b74f30c0c[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 14:07:07 2022 +0545
+
+    some contents of login with phone
+
+[33mcommit 712327ec2fc095fbbde62675c7d97d7799b95207[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 14:03:14 2022 +0545
+
+    login with phone number process started
+
+[33mcommit 9d5d7abb9cab0ad28d3142ce56aaa1b499c20720[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Fri Sep 30 13:50:47 2022 +0545
+
+    minor change
+
+[33mcommit b48f51258929343021549e05f6128822165645e5[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 19:04:14 2022 +0545
+
+    logout/login logic completed
+
+[33mcommit 3236dc3c0dec25fab7262486ee97826ed7c236e7[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 18:41:26 2022 +0545
+
+    some fixes to the screens
+
+[33mcommit c375bd8b565eb158e8da00c936d10f28a56c3d50[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 18:18:55 2022 +0545
+
+    login and signup features added
+
+[33mcommit 04b384f6eb787d994a5a75c1f3aec5c2a7dc6f1f[m
+Merge: 5cbd47a d036309
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 17:44:23 2022 +0545
+
+    Merge branch 'master' of https://github.com/praneshp1org/firebase-app
+
+[33mcommit 5cbd47a0d0dfea93a09b681780896e8a87a936cd[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 17:43:53 2022 +0545
+
+    error message change
+
+[33mcommit d036309563f703cc1ccf4b6291172418984a698c[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 17:21:12 2022 +0545
+
+    minor update
+
+[33mcommit 2f13659ec744927a50a9f72c036551a0bf42771a[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 17:18:31 2022 +0545
+
+    updated readme
+
+[33mcommit f394d7a9de3e6dbc03070478930a33d9aec0651d[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 14:48:13 2022 +0545
+
+    updated readme
+
+[33mcommit b2930dafe67eeeadb2e537bf654038661b86b22d[m
+Author: Pranesh Pyara Shrestha <80845871+praneshp1org@users.noreply.github.com>
+Date:   Thu Sep 29 14:44:30 2022 +0545
+
+    int

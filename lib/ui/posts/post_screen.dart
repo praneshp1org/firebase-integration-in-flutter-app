@@ -48,12 +48,35 @@ class _PostScreenState extends State<PostScreen> {
           actions: [
             IconButton(
                 onPressed: () {
-                  //logout feature
-                  _auth.signOut().then((value) {
-                    Get.to(LoginScreen());
-                  }).onError((error, stackTrace) {
-                    toastUtil().showToast(error.toString());
-                  });
+                  Get.defaultDialog(
+                      title: 'Log Out?',
+                      content: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('Cancel')),
+                              TextButton(
+                                  onPressed: () {
+                                    //logout feature
+                                    _auth.signOut().then((value) {
+                                      toastUtil()
+                                          .showToast('Successfully logged out');
+                                      Get.to(LoginScreen());
+                                    }).onError((error, stackTrace) {
+                                      toastUtil().showToast(error.toString());
+                                    });
+                                  },
+                                  child: Text('Log out'))
+                            ],
+                          )
+                        ],
+                      ));
                 },
                 icon: Icon(Icons.logout)),
             SizedBox(
