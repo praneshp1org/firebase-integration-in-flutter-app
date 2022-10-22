@@ -44,7 +44,7 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           centerTitle: true,
-          title: Text('Posts'),
+          title: Text('Firestore list screen'),
           actions: [
             IconButton(
                 onPressed: () {

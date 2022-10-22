@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,10 @@ class AddFirestoreDataScreen extends StatefulWidget {
   State<AddFirestoreDataScreen> createState() => _AddFirestoreDataScreenState();
 }
 
-bool _loading = false;
-final _databaseRef = FirebaseDatabase.instance.ref('Test'); //ref of table
+bool _loading = false; //ref of table
 //post wala table ma sabai save hunxa
 final _postController = TextEditingController();
+final fireStore = FirebaseFirestore.instance.collection('users');
 
 class _AddFirestoreDataScreenState extends State<AddFirestoreDataScreen> {
   @override
@@ -22,7 +23,7 @@ class _AddFirestoreDataScreenState extends State<AddFirestoreDataScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Add Post'),
+        title: Text('Add Firestore data'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -55,18 +56,16 @@ class _AddFirestoreDataScreenState extends State<AddFirestoreDataScreen> {
                   });
                   String id = DateTime.now().millisecondsSinceEpoch.toString();
 
-                  ///
-                  _databaseRef.child(id).set({
+                  fireStore.doc(id).set({
                     'title': _postController.text.toString(),
-                    'id': id,
+                    'id': id
                   }).then((value) {
+                    toastUtil().showToast('Data added!');
                     setState(() {
                       _loading = false;
                     });
-                    toastUtil().showToast('Post added!');
                   }).onError((error, stackTrace) {
-                    toastUtil().showToast(error.toString());
-                    _loading = false;
+                    toastUtil().showToast('Some error occured!');
                   });
                 })
           ],
