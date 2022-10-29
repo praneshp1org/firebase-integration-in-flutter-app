@@ -9,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreScreen extends StatefulWidget {
   const FirestoreScreen({super.key});
@@ -19,6 +20,7 @@ class FirestoreScreen extends StatefulWidget {
 
 class _FirestoreScreenState extends State<FirestoreScreen> {
   final _auth = FirebaseAuth.instance;
+  final fireStore = FirebaseFirestore.instance.collection('users').snapshots();
 
   final _editFilter = TextEditingController();
   @override
@@ -89,13 +91,28 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
             SizedBox(
               height: 10,
             ),
-            Expanded(
-                //needs to be wrapped with expanded widget
-                child: ListView.builder(itemBuilder: (context, index) {
-              return ListTile(
-                title: Text('pranisha'),
-              );
-            })),
+            StreamBuilder<QuerySnapshot>(
+              stream: fireStore,
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator();
+                }
+                if (snapshot.hasError) {
+                  toastUtil().showToast('Some error occured!');
+                }
+                return Expanded(
+                    //needs to be wrapped with expanded widget
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(
+                                snapshot.data!.docs[index]['title'].toString()),
+                          );
+                        }));
+              },
+            ),
           ],
         ),
       ),
