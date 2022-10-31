@@ -109,6 +109,8 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
                           return ListTile(
                             leading:
                                 Icon(Icons.precision_manufacturing_outlined),
+                            subtitle: Text(
+                                snapshot.data!.docs[index]['id'].toString()),
                             title: Text(
                                 snapshot.data!.docs[index]['title'].toString()),
                           );
