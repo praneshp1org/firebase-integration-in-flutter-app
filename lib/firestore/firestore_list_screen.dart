@@ -21,6 +21,7 @@ class FirestoreScreen extends StatefulWidget {
 class _FirestoreScreenState extends State<FirestoreScreen> {
   final _auth = FirebaseAuth.instance;
   final fireStore = FirebaseFirestore.instance.collection('users').snapshots();
+  CollectionReference _ref = FirebaseFirestore.instance.collection('users');
 
   final _editFilter = TextEditingController();
   @override
@@ -107,6 +108,29 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context, index) {
                           return ListTile(
+                            onTap: () {
+                              _ref
+                                  .doc(snapshot.data!.docs[index]['id']
+                                      .toString())
+                                  .update({
+                                'title': "Pranesh",
+                              }).then((value) {
+                                toastUtil().showToast('Updated');
+                              }).onError((error, stackTrace) {
+                                toastUtil().showToast('Error!');
+                              });
+                            },
+                            onLongPress: () {
+                              _ref
+                                  .doc(snapshot.data!.docs[index]['id']
+                                      .toString())
+                                  .delete()
+                                  .then((value) {
+                                toastUtil().showToast('Deleted!');
+                              }).onError((error, stackTrace) {
+                                toastUtil().showToast('Error!');
+                              });
+                            },
                             leading:
                                 Icon(Icons.precision_manufacturing_outlined),
                             subtitle: Text(
