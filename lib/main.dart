@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Firebase',
       theme: ThemeData(
+        useMaterial3: true,
         primarySwatch: Colors.deepPurple,
       ),
       // home: SplashScreen(),

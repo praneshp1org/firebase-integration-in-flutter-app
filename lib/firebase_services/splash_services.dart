@@ -1,8 +1,8 @@
 import 'dart:async';
-
 import 'package:firebase_crud/firestore/firestore_list_screen.dart';
 import 'package:firebase_crud/ui/auth/login_screen.dart';
 import 'package:firebase_crud/ui/posts/post_screen.dart';
+import 'package:firebase_crud/ui/upload_image.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -18,7 +18,7 @@ class SplashService {
 
     if (user != null) {
       Future.delayed(Duration(seconds: 3), () {
-        Get.off(FirestoreScreen());
+        Get.off(UploadImage());
       });
     } else {
       Future.delayed(Duration(seconds: 3), () {
