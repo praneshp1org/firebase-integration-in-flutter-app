@@ -77,12 +77,12 @@ class _UploadImageState extends State<UploadImage> {
                 });
                 firebase_storage.Reference ref = firebase_storage
                     .FirebaseStorage.instance
-                    .ref('/foldername' + '1224');
+                    .ref('/pranesh' + DateTime.now().millisecond.toString());
                 firebase_storage.UploadTask uploadTask =
                     ref.putFile(_image!.absolute);
 
-                Future.value(uploadTask).then((value) {
-                  var newUrl = ref.getDownloadURL();
+                Future.value(uploadTask).then((value) async {
+                  var newUrl = await ref.getDownloadURL();
 
                   databaseRef.child('1').set(
                       {'id': '1212', 'title': newUrl.toString()}).then((value) {
