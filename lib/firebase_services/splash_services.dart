@@ -18,7 +18,7 @@ class SplashService {
 
     if (user != null) {
       Future.delayed(Duration(seconds: 3), () {
-        Get.off(UploadImage());
+        Get.off(PostScreen());
       });
     } else {
       Future.delayed(Duration(seconds: 3), () {

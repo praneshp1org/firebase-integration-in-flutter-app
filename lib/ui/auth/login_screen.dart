@@ -1,4 +1,5 @@
 import 'package:firebase_crud/ui/auth/login_with_phone_number.dart';
+import 'package:firebase_crud/ui/forgot_password.dart';
 import 'package:firebase_crud/ui/posts/post_screen.dart';
 import 'package:firebase_crud/utils/utils.dart';
 import 'package:firebase_crud/widgets/round_button.dart';
@@ -149,8 +150,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 }),
               ),
               SizedBox(
-                height: 30,
+                height: 10,
               ),
+              Align(
+                  child: TextButton(
+                      onPressed: () {
+                        Get.to(() => ForgotPasswordScreen());
+                      },
+                      child: Text('Forgot Password?'))
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
